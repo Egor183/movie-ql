@@ -1,12 +1,16 @@
 type Movie {
-  name: String!
-  score: Float!
+  title: String!
+  rating: Float!
   id: Int!
+  summary: String
+  language: String
+  medium_cover_image: String
 }
 
 type Query {
-  movies: [Movie]!
+  movies(limit: Int, minimumRating: Float): [Movie]
   movie(id: Int!): Movie
+  suggestions(id: Int!): [Movie]
 }
 
 type Mutation {
